@@ -323,6 +323,7 @@ class LineChartRenderer extends LineRadarRenderer {
     Transformer trans = _provider.getTransformer(dataSet.getAxisDependency());
 
     double phaseY = animator.getPhaseY();
+    double phaseX = animator.getPhaseX();
 
     renderPaint..style = PaintingStyle.stroke;
 
@@ -351,7 +352,7 @@ class LineChartRenderer extends LineRadarRenderer {
         Entry e = dataSet.getEntryForIndex(j);
         if (e == null) continue;
 
-        mLineBuffer[0] = e.x;
+        mLineBuffer[0] = e.x * phaseX;
         mLineBuffer[1] = e.y * phaseY;
 
         if (j < xBounds.max) {
