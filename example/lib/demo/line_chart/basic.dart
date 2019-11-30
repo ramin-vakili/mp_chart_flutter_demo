@@ -26,7 +26,7 @@ class LineChartBasic extends StatefulWidget {
 
 class LineChartBasicState extends LineActionState<LineChartBasic> {
   var random = Random(1);
-  int _count = 45;
+  int _count = 10;
   double _range = 180.0;
 
   @override
@@ -219,11 +219,11 @@ class LineChartBasicState extends LineActionState<LineChartBasic> {
     set1.enableDashedHighlightLine(10, 5, 0);
 
     // set the filled area
-    set1.setDrawFilled(true);
+    //set1.setDrawFilled(true);
 //    set1.setFillFormatter(A(lineChart.painter));
 
     // set color of filled area
-    set1.setFillColor(ColorUtils.FADE_RED_END);
+//    set1.setFillColor(ColorUtils.FADE_RED_END);
 
     List<ILineDataSet> dataSets = List();
     dataSets.add(set1); // add the data sets
@@ -238,7 +238,8 @@ class LineChartBasicState extends LineActionState<LineChartBasic> {
     var lineChart = LineChart(controller);
     controller.animator
       ..reset()
-      ..animateX1(1500);
+      ..setPhaseX(0.9)
+      ..animateXY1(1500, 1500);
     return lineChart;
   }
 }

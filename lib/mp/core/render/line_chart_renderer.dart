@@ -361,14 +361,14 @@ class LineChartRenderer extends LineRadarRenderer {
           if (e == null) break;
 
           if (isDrawSteppedEnabled) {
-            mLineBuffer[2] = e.x;
+            mLineBuffer[2] = e.x * phaseX;
             mLineBuffer[3] = mLineBuffer[1];
             mLineBuffer[4] = mLineBuffer[2];
             mLineBuffer[5] = mLineBuffer[3];
-            mLineBuffer[6] = e.x;
+            mLineBuffer[6] = e.x * phaseX;
             mLineBuffer[7] = e.y * phaseY;
           } else {
-            mLineBuffer[2] = e.x;
+            mLineBuffer[2] = e.x * phaseX;
             mLineBuffer[3] = e.y * phaseY;
           }
         } else {
@@ -423,7 +423,7 @@ class LineChartRenderer extends LineRadarRenderer {
             mLineBuffer[j++] = e1.y * phaseY;
           }
 
-          mLineBuffer[j++] = e2.x;
+          mLineBuffer[j++] = e2.x * phaseX;
           mLineBuffer[j++] = e2.y * phaseY;
         }
 
